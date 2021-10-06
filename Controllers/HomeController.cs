@@ -58,6 +58,27 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
             return View();
         }
 
+        public IActionResult Arquitectura()
+        {
+            return View();
+        }
+
+        public IActionResult Consultoria()
+        {
+            return View();
+        }
+
+        public IActionResult Construccion()
+        {
+            return View();
+        }
+
+        public IActionResult Legal()
+        {
+            return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
