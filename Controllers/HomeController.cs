@@ -57,6 +57,31 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
         {
             return View();
         }
+        public IActionResult ProyectA1()
+        {
+            return View();
+        }
+        public IActionResult ProyectA2()
+        {
+            return View();
+        }
+        public IActionResult ProyectA3()
+        {
+            return View();
+        }
+        public IActionResult ProyectR1()
+        {
+            return View();
+        }
+        public IActionResult ProyectR2()
+        {
+            return View();
+        }
+        public IActionResult ProyectR3()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
