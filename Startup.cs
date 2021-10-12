@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Estudio_de_Arquitectura_J_W.Data;
+using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 namespace Estudio_de_Arquitectura_J_W
 {
@@ -24,6 +27,9 @@ namespace Estudio_de_Arquitectura_J_W
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(
+                    Configuration.GetConnectionString("Softw2")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
