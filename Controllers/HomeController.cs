@@ -9,15 +9,17 @@ using Estudio_de_Arquitectura_J_W.Models;
 
 namespace Estudio_de_Arquitectura_J_W.Controllers
 {
+    
     public class HomeController : Controller
     {
+        
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
-
+        
         public IActionResult Index()
         {
             return View();
@@ -53,10 +55,6 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
             return View();
         }
 
-        public IActionResult Comentarios()
-        {
-            return View();
-        }
         public IActionResult ProyectA1()
         {
             return View();

@@ -9,6 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+
+using Estudio_de_Arquitectura_J_W.Data;
+
 namespace Estudio_de_Arquitectura_J_W
 {
     public class Startup
@@ -21,10 +26,17 @@ namespace Estudio_de_Arquitectura_J_W
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        
+
         public void ConfigureServices(IServiceCollection services)
-        {
+         {
             services.AddControllersWithViews();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(
+                    Configuration.GetConnectionString("Softw2")));
         }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

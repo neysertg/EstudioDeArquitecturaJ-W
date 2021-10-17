@@ -1,0 +1,35 @@
+@model IEnumerable<Estudio_de_Arquitectura_J_W.Models.Comentarios>
+
+<h2>Comentarios</h2>
+
+
+<table class="table table-hover">
+     <thead class="thead-dark">
+        <tr>
+                <th scope="col">
+                    Numero de Comentario
+                </th>
+                <th scope="col">
+                    Comentario
+                </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="col">
+                    @Html.DisplayFor(modelItem => item.id)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comentario)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="CrearComentario">Añadir un Comentario</a>
+</p>
+
+<h1>@ViewData["Message"]</h1>
