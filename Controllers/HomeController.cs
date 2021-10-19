@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using EstudioDeArquitecturaJ_W.Models;
+
+namespace EstudioDeArquitecturaJ_W.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Nosotros()
+        {
+            return View();
+        }
+
+        public IActionResult Contacto()
+        {
+            return View();
+        }
+        
+        public IActionResult NuestraExperiencia()
+        {
+            return View();
+        }
+        
+        public IActionResult ProyectosRealizados()
+        {
+            return View();
+        }
+        
+        public IActionResult ProyectosArealizar()
+        {
+            return View();
+        }
+        
+        public IActionResult Servicios()
+        {
+            return View();
+        }
+
+        public IActionResult Comentarios()
+        {
+            return View();
+        }
+
+        public IActionResult Arquitectura()
+        {
+            return View();
+        }
+
+        public IActionResult Consultoria()
+        {
+            return View();
+        }
+
+        public IActionResult Construccion()
+        {
+            return View();
+        }
+
+        public IActionResult Legal()
+        {
+            return View();
+        }
+
+        public IActionResult AgregarProyecto()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}
