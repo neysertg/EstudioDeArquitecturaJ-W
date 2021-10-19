@@ -1,1 +1,0 @@
-# Estudio-de-Arquitectura-J-W
