@@ -12,6 +12,8 @@ namespace Estudio_de_Arquitectura_J_W.Data
             : base(options) {   
             
         }
-        public DbSet<Estudio_de_Arquitectura_J_W.Models.Servicios> Servicios{get;set;}
+
+        public DbSet<Estudio_de_Arquitectura_J_W.Models.Comentarios> Comentarios{get;set;}
+
     }
 }
