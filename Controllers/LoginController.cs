@@ -10,42 +10,42 @@ using Estudio_de_Arquitectura_J_W.Data;
 
 namespace Estudio_de_Arquitectura_J_W.Controllers
 {
-    public class ComentarioController : Controller
+    public class LoginController : Controller
     {
-        private readonly ILogger<ComentarioController> _logger;
+        private readonly ILogger<LoginController> _logger;
         private readonly ApplicationDbContext _context;
 
 
-        public ComentarioController(ILogger<ComentarioController> logger,
+        public LoginController(ILogger<LoginController> logger,
             ApplicationDbContext context)
         {
             _logger = logger;
             _context = context;
         }
 
-        public IActionResult MostrarComentarios()
+        public IActionResult Login()
         {
-            
-            var listcomentarios = _context.Comentarios.ToList();
-            ViewData["Message"] = "";
-            return View(listcomentarios);
+            return View();
         }
 
         [HttpGet]
-        public IActionResult CrearComentario()
+        public IActionResult Registrar()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult CrearComentario(Comentarios objComentarios)
+        public IActionResult Registrar(Login objAdmin)
         {
-            _context.Add(objComentarios);
+            _context.Add(objAdmin);
             _context.SaveChanges();
-            objComentarios.comentario = "Subido";
-            ViewData["Message"] = "El comentario ya esta " + objComentarios.comentario;
+            ViewData["Message"] = "El usuario se registro con exito";
             return View();
+            
+          
+        
         }
+        
 
     }
 }

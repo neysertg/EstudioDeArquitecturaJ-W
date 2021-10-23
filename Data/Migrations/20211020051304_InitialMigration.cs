@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Estudio_de_Arquitectura_J_W.Migrations
+namespace Estudio_de_Arquitectura_J_W.Data.Migrations
 {
-    public partial class mig1 : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -60,6 +60,49 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Servicios", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_comentarios",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    comentario = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_comentarios", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_login",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    correo = table.Column<string>(type: "text", nullable: true),
+                    contraseña = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_login", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_proyectos",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nombre = table.Column<string>(type: "text", nullable: true),
+                    imagen = table.Column<string>(type: "text", nullable: true),
+                    descripcion = table.Column<string>(type: "text", nullable: true),
+                    precio = table.Column<double>(type: "double precision", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_proyectos", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -225,6 +268,15 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
 
             migrationBuilder.DropTable(
                 name: "Servicios");
+
+            migrationBuilder.DropTable(
+                name: "t_comentarios");
+
+            migrationBuilder.DropTable(
+                name: "t_login");
+
+            migrationBuilder.DropTable(
+                name: "t_proyectos");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -34,6 +34,69 @@ namespace Estudio_de_Arquitectura_J_W.Data.Migrations
                     b.ToTable("t_comentarios");
                 });
 
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Login", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("contraseña")
+                        .HasColumnType("text");
+
+                    b.Property<string>("correo")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("t_login");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Proyectos", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("descripcion")
+                        .HasColumnType("text");
+
+                    b.Property<string>("imagen")
+                        .HasColumnType("text");
+
+                    b.Property<string>("nombre")
+                        .HasColumnType("text");
+
+                    b.Property<double>("precio")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("id");
+
+                    b.ToTable("t_proyectos");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Servicios", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("descripcion")
+                        .HasColumnType("text");
+
+                    b.Property<string>("foto")
+                        .HasColumnType("text");
+
+                    b.Property<string>("nombre")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Servicios");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")

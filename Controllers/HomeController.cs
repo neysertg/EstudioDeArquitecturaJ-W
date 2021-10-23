@@ -45,10 +45,6 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
             return View();
         }
         
-        public IActionResult ProyectosArealizar()
-        {
-            return View();
-        }
         
         public IActionResult Servicios()
         {

@@ -12,10 +12,6 @@ using Estudio_de_Arquitectura_J_W.Data;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 
-using Microsoft.EntityFrameworkCore;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
-
-using Estudio_de_Arquitectura_J_W.Data;
 
 namespace Estudio_de_Arquitectura_J_W
 {

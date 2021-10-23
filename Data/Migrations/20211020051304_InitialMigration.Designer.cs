@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Estudio_de_Arquitectura_J_W.Migrations
+namespace Estudio_de_Arquitectura_J_W.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211012052644_mig1")]
-    partial class mig1
+    [Migration("20211020051304_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,63 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                 .UseIdentityByDefaultColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.2");
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Comentarios", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("comentario")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("t_comentarios");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Login", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("contraseña")
+                        .HasColumnType("text");
+
+                    b.Property<string>("correo")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("t_login");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Proyectos", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("descripcion")
+                        .HasColumnType("text");
+
+                    b.Property<string>("imagen")
+                        .HasColumnType("text");
+
+                    b.Property<string>("nombre")
+                        .HasColumnType("text");
+
+                    b.Property<double>("precio")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("id");
+
+                    b.ToTable("t_proyectos");
+                });
 
             modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Servicios", b =>
                 {

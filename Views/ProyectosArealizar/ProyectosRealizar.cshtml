@@ -1,27 +1,49 @@
-@{
-    ViewData["Title"] = "";
-}
-<h1>@ViewData["Title"]</h1>
+@model IEnumerable<Estudio_de_Arquitectura_J_W.Models.Proyectos>
+
+<div class="container">
+
+  @if(TempData["mensaje"] != null){
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        @TempData["mensaje"]
+        <button type="button" class="close" data-dismiss="alert" arial-label="Close">
+          <span aria-hidden="true">&times;</span>
+
+        </button>
+    </div>
+  }
+
+</div>
 
 
-
-
-
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="https://i.pinimg.com/236x/46/7d/f9/467df97c03fca7b5230053c921145591.jpg" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">BECERRA 227</h5>
-        <p class="card-text">Miraflores _Desde $579,075</p>
-        <a asp-action="ProyectA1"><button type="ProyectA1" class="btn btn-info">Caracteristicas</button></a>
-      
-               
-            
-
+<div class="row">
+      <div class="col">
+        <div id="products" class="mb-3">
+          <div class="row">
+            @foreach (var item in Model) {
+            <div class="col-sm-4">
+              
+                <div class="card">                  
+                     <img class="card-img-top" width="200" height="400"
+                       src="@item.imagen" alt="@item.imagen"  />       
+                
+                <div class="card-body">
+                  <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
+                  <p class="card-text" >Descripción: @Html.DisplayFor(modelItem => item.descripcion)</p>
+                  <p class="card-text" >Desde: $@Html.DisplayFor(modelItem => item.precio)</p>
+                  <a asp-action="EditarProyectoRealizar" asp-route-id="@item.id"><button type="button" class="btn btn-info">Editar Proyecto</button></a>
+                  <a asp-action="CaracteristicasProyectoR" asp-route-id="@item.id"><button type="button" class="btn btn-info">Caracteristicas</button></a>
+                 </div> 
+                </div>              
+            </div>
+            }
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+
   <div class="col">
     <div class="card">
       <img src="https://i.pinimg.com/474x/b4/ee/e2/b4eee26494fae2af4e37dbad9ec2082c--architecture-visualization-marina.jpg" class="card-img-top" height="400" width="400" alt="...">
@@ -32,6 +54,7 @@
       </div>
     </div>
   </div>
+
   <div class="col">
     <div class="card">
       <img src="https://fachadas-casas.com/wp-content/uploads/2010/06/fachadas-edificios-8.jpg" class="card-img-top" height="400" width="400" alt="...">
@@ -42,6 +65,7 @@
       </div>
     </div>
   </div>
+
   <div class="col">
     <div class="card">
       <img src="https://www.mundohvacr.com.mx/wp-content/uploads/2014/06/A0MH0079419.jpg" class="card-img-top" height="400" width="400" alt="...">
@@ -52,6 +76,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
 <br>
