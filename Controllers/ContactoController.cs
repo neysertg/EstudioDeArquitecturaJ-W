@@ -23,7 +23,7 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
             _context = context;
         }
         
-        public IActionResult Index()   
+        public IActionResult Contacto()   
         {
            
             ViewData["Message"] = "";

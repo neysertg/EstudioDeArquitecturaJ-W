@@ -44,7 +44,7 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
             _context.SaveChanges();
             objComentarios.comentario = "Subido";
             ViewData["Message"] = "El comentario ya esta " + objComentarios.comentario;
-            return View();
+            return RedirectToAction("MostrarComentarios");
         }
 
     }
