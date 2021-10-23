@@ -41,9 +41,8 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
         public IActionResult CrearComentario(Comentarios objComentarios)
         {
             _context.Add(objComentarios);
-            _context.SaveChanges();
-            objComentarios.comentario = "Subido";
-            ViewData["Message"] = "El comentario ya esta " + objComentarios.comentario;
+            _context.SaveChanges();            
+            TempData["mensaje"] = "El comentario se ha subido correctamente";
             return RedirectToAction("MostrarComentarios");
         }
 
