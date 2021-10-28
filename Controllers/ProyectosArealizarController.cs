@@ -24,11 +24,16 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
             _context = context;
         }
         
-        public IActionResult ProyectosRealizar()
-        {            
-            var proyectos = _context.Proyectos.ToList();
-            ViewData["Message"] = "";
-            return View(proyectos);
+        public async Task<IActionResult> ProyectosRealizar(string searchString)
+        {
+            ViewData["CurrentFilter"]=searchString;
+            var proyectos = from o in _context.Proyectos select o;
+             if (!String.IsNullOrEmpty(searchString)){
+                proyectos = proyectos.Where(o=>o.nombre.Contains(searchString) || o.descripcion.Contains(searchString));
+            }
+            
+            return View(await proyectos.ToListAsync());
+            
         }
         
         public IActionResult CrearProyectoRealizar()
