@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Estudio_de_Arquitectura_J_W.Data.Migrations
+namespace Estudio_de_Arquitectura_J_W.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211028230827_membresia")]
-    partial class membresia
+    [Migration("20211029221457_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,24 +36,6 @@ namespace Estudio_de_Arquitectura_J_W.Data.Migrations
                     b.ToTable("t_comentarios");
                 });
 
-            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Login", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
-
-                    b.Property<string>("contraseña")
-                        .HasColumnType("text");
-
-                    b.Property<string>("correo")
-                        .HasColumnType("text");
-
-                    b.HasKey("id");
-
-                    b.ToTable("t_login");
-                });
-
             modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Proyectos", b =>
                 {
                     b.Property<int>("id")
@@ -62,16 +44,27 @@ namespace Estudio_de_Arquitectura_J_W.Data.Migrations
                         .UseIdentityByDefaultColumn();
 
                     b.Property<string>("descripcion")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("estado")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("imagen")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("lugar")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("nombre")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("precio")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("precio")
+                        .HasColumnType("numeric");
 
                     b.HasKey("id");
 

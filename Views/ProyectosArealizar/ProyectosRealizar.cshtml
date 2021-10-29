@@ -46,6 +46,8 @@
                 <div class="card-body">
                   <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
                   <p class="card-text" >Descripción: @Html.DisplayFor(modelItem => item.descripcion)</p>
+                  <p class="card-text" >Lugar: @Html.DisplayFor(modelItem => item.lugar)</p>
+                  <p class="card-text" >Estado: @Html.DisplayFor(modelItem => item.estado)</p>
                   <p class="card-text" >Desde: $@Html.DisplayFor(modelItem => item.precio)</p>
                   @if(!User.Identity.IsAuthenticated){
                   <a asp-action="Caracteristicas" asp-route-id="@item.id"><button type="button" class="btn btn-info">Caracteristicas</button></a>

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Estudio_de_Arquitectura_J_W.Data.Migrations
+namespace Estudio_de_Arquitectura_J_W.Migrations
 {
     public partial class InitialMigration : Migration
     {
@@ -76,29 +76,17 @@ namespace Estudio_de_Arquitectura_J_W.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "t_login",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    correo = table.Column<string>(type: "text", nullable: true),
-                    contraseña = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_t_login", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "t_proyectos",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    nombre = table.Column<string>(type: "text", nullable: true),
-                    imagen = table.Column<string>(type: "text", nullable: true),
-                    descripcion = table.Column<string>(type: "text", nullable: true),
-                    precio = table.Column<double>(type: "double precision", nullable: false)
+                    nombre = table.Column<string>(type: "text", nullable: false),
+                    imagen = table.Column<string>(type: "text", nullable: false),
+                    descripcion = table.Column<string>(type: "text", nullable: false),
+                    lugar = table.Column<string>(type: "text", nullable: false),
+                    precio = table.Column<decimal>(type: "numeric", nullable: false),
+                    estado = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -271,9 +259,6 @@ namespace Estudio_de_Arquitectura_J_W.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "t_comentarios");
-
-            migrationBuilder.DropTable(
-                name: "t_login");
 
             migrationBuilder.DropTable(
                 name: "t_proyectos");
