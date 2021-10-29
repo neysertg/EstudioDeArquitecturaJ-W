@@ -11,7 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Estudio_de_Arquitectura_J_W.Data;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace Estudio_de_Arquitectura_J_W
 {
@@ -33,6 +33,9 @@ namespace Estudio_de_Arquitectura_J_W
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("Softw2")));
+            services.AddIdentity<IdentityUser,IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders();
         }
 
 
@@ -54,6 +57,7 @@ namespace Estudio_de_Arquitectura_J_W
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

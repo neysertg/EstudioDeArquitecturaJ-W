@@ -11,7 +11,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="https://scontent.flim18-2.fna.fbcdn.net/v/t39.30808-6/244346162_243926127742174_9071717022257596831_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=j4j7Q0JDxhcAX_14ZR_&_nc_ht=scontent.flim18-2.fna&oh=5ba966173527899df2009d99334a524a&oe=617271CB" width="50px" height="50px" alt=""></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/image/Logo.jpg" width="45px" height="45px" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -43,6 +43,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Comentario" asp-action="MostrarComentarios">Comentarios</a>
                         </li>
+                        @if(User.Identity.IsAuthenticated){
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cuenta" asp-action="CerrarSesion">Cerrar Sesion</a>
+                        </li>
+                        }
                     </ul>
                 </div>
             </div>
