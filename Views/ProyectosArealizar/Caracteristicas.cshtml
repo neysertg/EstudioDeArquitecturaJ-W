@@ -1,0 +1,13 @@
+@model Estudio_de_Arquitectura_J_W.Models.Proyectos
+<h1>Caracteristicas</h1>
+ 
+<div class="card bg-dark text-white">
+   
+   <img class="card-img-top" width="400" height="400" src="@Model.imagen" alt="@Model.imagen"  />
+  <div class="card-img-overlay">
+    <h5 style="color:#000000" class="card-title">@Html.DisplayFor(modelItem => Model.nombre)</h5>
+    <p style="color:#000000" class="card-text"> @Html.DisplayFor(modelItem => Model.descripcion)</p>
+    <p style="color:#000000"class="card-text">@Html.DisplayFor(modelItem => Model.precio)</p>
+   </div>
+   
+</div>

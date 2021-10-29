@@ -48,7 +48,7 @@
                   <p class="card-text" >Descripción: @Html.DisplayFor(modelItem => item.descripcion)</p>
                   <p class="card-text" >Desde: $@Html.DisplayFor(modelItem => item.precio)</p>
                   @if(!User.Identity.IsAuthenticated){
-                  <button type="button" class="btn btn-info">Caracteristicas</button>
+                  <a asp-action="Caracteristicas" asp-route-id="@item.id"><button type="button" class="btn btn-info">Caracteristicas</button></a>
                   }else{
                     <a asp-action="EditarProyectoRealizar" asp-route-id="@item.id"><button type="button" class="btn btn-info">Editar Proyecto</button></a>
                     

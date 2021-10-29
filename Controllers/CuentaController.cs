@@ -40,7 +40,7 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
                     return RedirectToAction("Index","Home");
             }
 
-
+            [HttpGet]
             public IActionResult CrearCuenta(){
 
                     return View();

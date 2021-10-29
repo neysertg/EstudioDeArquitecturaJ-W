@@ -85,6 +85,23 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
             return View ();
         }   
         
+        [HttpGet]
+        public async Task<IActionResult> Caracteristicas(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var proyecto = await _context.Proyectos
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (proyecto == null)
+            {
+                return NotFound();
+            }
+
+            return View(proyecto);
+        }
      
     }
 }
