@@ -24,12 +24,17 @@
     <label for="inputAddress2" class="form-label">Precio</label>
     <input asp-for="precio" class="form-control" placeholder="Inserte aqui el Precio">
   </div>
-
+  <br>
   <div class="col-12">
     <label for="inputAddress2" class="form-label">Estado</label>
-    <input asp-for="estado" class="form-control" placeholder="Inserte aqui el Precio">
+  <select class="form-select" asp-for="estado" aria-label="Default select example">
+    <option selected>Seleccione el estado</option>
+    <option value="En Proceso">En Proceso</option>
+    <option value="Terminado">Terminado</option>
+  </select>
   </div>
-
+  <br>
+  <br>
   <div class="col-12">
     <button type="submit" class="btn btn-secondary">Subir Proyecto</button>
   </div>
