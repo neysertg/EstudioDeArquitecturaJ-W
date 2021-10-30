@@ -9,6 +9,7 @@ using Estudio_de_Arquitectura_J_W.Models;
 using Estudio_de_Arquitectura_J_W.Data;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Estudio_de_Arquitectura_J_W.Controllers
 {
     public class ProyectosArealizar : Controller
@@ -23,14 +24,28 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
             _logger = logger;
             _context = context;
         }
-        
+        public async Task<IActionResult> ProyectosRealizados(string searchString)
+        {
+            ViewData["CurrentFilter"]=searchString;
+            var proyectos = from o in _context.Proyectos select o;
+ 
+            if (!String.IsNullOrEmpty(searchString) ){
+                proyectos = proyectos.Where(o=>o.nombre.Contains(searchString) || o.descripcion.Contains(searchString));
+            }
+            
+            
+            return View(await proyectos.ToListAsync());
+            
+        }
         public async Task<IActionResult> ProyectosRealizar(string searchString)
         {
             ViewData["CurrentFilter"]=searchString;
             var proyectos = from o in _context.Proyectos select o;
-             if (!String.IsNullOrEmpty(searchString)){
+ 
+            if (!String.IsNullOrEmpty(searchString) ){
                 proyectos = proyectos.Where(o=>o.nombre.Contains(searchString) || o.descripcion.Contains(searchString));
             }
+            
             
             return View(await proyectos.ToListAsync());
             
