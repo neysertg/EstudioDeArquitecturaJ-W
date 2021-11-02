@@ -17,7 +17,7 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
             }
 
             public IActionResult IniciarSesion(){
-
+                       
                     return View();
             }
 
@@ -31,7 +31,8 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
                     }else{
                         ModelState.AddModelError("","Los datos son incorrectos");
                         return View();
-                    }                    
+                    }  
+                                   
             }
 
             public async Task<IActionResult> CerrarSesion(){
@@ -53,9 +54,9 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
                 usuario.Email = email;
                 var resultado =  _um.CreateAsync(usuario, password).Result;
 
-               if(resultado.Succeeded){
+                if(resultado.Succeeded){
                     return RedirectToAction("Index", "Home");
-               }
+                }
 
                 foreach(var error in resultado.Errors){
                     ModelState.AddModelError("", error.Description);
