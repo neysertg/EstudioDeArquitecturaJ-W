@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -46,21 +47,20 @@
                         @if(User.Identity.IsAuthenticated){
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Cuenta" asp-action="CerrarSesion">Cerrar Sesion</a>
+                        </li>       
+                        
+                        <li class="nav-item" style="text-align: right;">
+                            Bienvenido Admin 
                         </li>
                         }
+                        
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-  intent="WELCOME"
-  chat-title="Rocoto2"
-  agent-id="0958af28-027d-4968-8d93-2d8f4f6bd623"
-  language-code="es"
-></df-messenger>
+
     
     <div class="container">
         <main role="main" class="pb-3">

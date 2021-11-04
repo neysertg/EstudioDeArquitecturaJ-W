@@ -1,3 +1,4 @@
+@model List<DiseñoArquitectonico>
 <h1 style="text-align: center;">Nuestros Servicios</h1>
 <p style="text-align: center;">J&W es un estudio de Arquitectos profesionales especializados en diseños arquitectonicos, cumpliendo las expectativas de nuestros clientes, 
     garantizando satisfaccion al bienestar y calidad de vida de ser una empresa comprometida, crea experiencias unicas a los clientes</p>
@@ -11,31 +12,32 @@
 <div class="container">
   <div class="row">
       <div class="col-6" style="text-align: left;">
-        <p>
-        En un concepto mas amplio, el proyecto arquitectonico competo comprende el desarrollo del diseño de una edificacion,
-        la distribucion de usos y espacios, 
-        la manera de utilizar los materiales y tecnologias, y la elaboracion del conjunto de planos con los detallos y perspectivas.
-        </p> 
+        @foreach (var item in Model){
+        <p>@Html.DisplayFor(modelItem => item.descripcionDA)</p>
+            @if(User.Identity.IsAuthenticated){
+            <a asp-action="ModificarDiseño" asp-route-id="@item.id">
+              <button type="button" class="btn btn-dark" style="background-color: red;">  Modificar Descripcion e imagen 
+              </button>
+            </a>
+            }
         <h2>Proceso de Diseño Arquitectonico</h2>
-        <ul>
-            <li>Ten a mano un programa arquitectonico</li>
-            <li>Diagrama de Relaciones</li>
-            <li>Estudio de Areas</li>
-            <li>Analisis del sitio</li>
-            <li>Sacar Provecho del espacio</li>
-            <li>Anteproyecto Arquitectonico</li>
-            <li>Revisiones</li>
-            <li>Proyecto Arquitectonico</li>
-        </ul>       
+          @foreach (var procesoDA in item.procesoDA){
+          <ul><li> @procesoDA.procesoDA</li></ul>
+                      
+          }
+          
+        }     
       </div>
       <div class="col-4" style="text-align: right ;">
-            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="">
+        @foreach (var item in Model){
+            <img src="@item.imagenDA" alt="" width="546px" height="340px">
+        }
             <br>
             <br>
                  
-            <a asp-action="Contacto" asp-controller="Contacto"><button type="button" class="btn btn-dark" style="background-color: red;">  Adquirir Servicios</button></a>
-                  
+              
       </div>
+      
       
    </div>
 </div>

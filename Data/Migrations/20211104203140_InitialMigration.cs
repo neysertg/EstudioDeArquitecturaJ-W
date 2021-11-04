@@ -48,21 +48,6 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Servicios",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    foto = table.Column<string>(type: "text", nullable: true),
-                    descripcion = table.Column<string>(type: "text", nullable: true),
-                    nombre = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Servicios", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "t_comentarios",
                 columns: table => new
                 {
@@ -73,6 +58,48 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_t_comentarios", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_construccion",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    descripcionConstruccion = table.Column<string>(type: "text", nullable: true),
+                    imagenConstruccion = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_construccion", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_consultoria",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    descripcionConsultoria = table.Column<string>(type: "text", nullable: true),
+                    imagenConsultoria = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_consultoria", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_diseñoArquitectonico",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    descripcionDA = table.Column<string>(type: "text", nullable: true),
+                    imagenDA = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_diseñoArquitectonico", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -91,6 +118,20 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_t_proyectos", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_saneamiento",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    descripcionSa = table.Column<string>(type: "text", nullable: true),
+                    imagenSa = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_saneamiento", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -199,6 +240,86 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "t_procesoConstruccion",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    procesoConstruccion = table.Column<string>(type: "text", nullable: true),
+                    Construccionid = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_procesoConstruccion", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_t_procesoConstruccion_t_construccion_Construccionid",
+                        column: x => x.Construccionid,
+                        principalTable: "t_construccion",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_procesoCons",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    procesoConsultoria = table.Column<string>(type: "text", nullable: true),
+                    Consultoriaid = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_procesoCons", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_t_procesoCons_t_consultoria_Consultoriaid",
+                        column: x => x.Consultoriaid,
+                        principalTable: "t_consultoria",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_procesoDA",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    procesoDA = table.Column<string>(type: "text", nullable: true),
+                    DiseñoArquitectonicoid = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_procesoDA", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_t_procesoDA_t_diseñoArquitectonico_DiseñoArquitectonicoid",
+                        column: x => x.DiseñoArquitectonicoid,
+                        principalTable: "t_diseñoArquitectonico",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_procesoSa",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    procesoSa = table.Column<string>(type: "text", nullable: true),
+                    Saneamientoid = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_procesoSa", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_t_procesoSa_t_saneamiento_Saneamientoid",
+                        column: x => x.Saneamientoid,
+                        principalTable: "t_saneamiento",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -235,6 +356,26 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_t_procesoCons_Consultoriaid",
+                table: "t_procesoCons",
+                column: "Consultoriaid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_t_procesoConstruccion_Construccionid",
+                table: "t_procesoConstruccion",
+                column: "Construccionid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_t_procesoDA_DiseñoArquitectonicoid",
+                table: "t_procesoDA",
+                column: "DiseñoArquitectonicoid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_t_procesoSa_Saneamientoid",
+                table: "t_procesoSa",
+                column: "Saneamientoid");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -255,10 +396,19 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Servicios");
+                name: "t_comentarios");
 
             migrationBuilder.DropTable(
-                name: "t_comentarios");
+                name: "t_procesoCons");
+
+            migrationBuilder.DropTable(
+                name: "t_procesoConstruccion");
+
+            migrationBuilder.DropTable(
+                name: "t_procesoDA");
+
+            migrationBuilder.DropTable(
+                name: "t_procesoSa");
 
             migrationBuilder.DropTable(
                 name: "t_proyectos");
@@ -268,6 +418,18 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "t_consultoria");
+
+            migrationBuilder.DropTable(
+                name: "t_construccion");
+
+            migrationBuilder.DropTable(
+                name: "t_diseñoArquitectonico");
+
+            migrationBuilder.DropTable(
+                name: "t_saneamiento");
         }
     }
 }

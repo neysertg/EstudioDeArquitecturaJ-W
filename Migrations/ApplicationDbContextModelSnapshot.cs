@@ -34,6 +34,140 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                     b.ToTable("t_comentarios");
                 });
 
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Construccion", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("descripcionConstruccion")
+                        .HasColumnType("text");
+
+                    b.Property<string>("imagenConstruccion")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("t_construccion");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Consultoria", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("descripcionConsultoria")
+                        .HasColumnType("text");
+
+                    b.Property<string>("imagenConsultoria")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("t_consultoria");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.DiseñoArquitectonico", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("descripcionDA")
+                        .HasColumnType("text");
+
+                    b.Property<string>("imagenDA")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("t_diseñoArquitectonico");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.ProcesoCons", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<int?>("Consultoriaid")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("procesoConsultoria")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Consultoriaid");
+
+                    b.ToTable("t_procesoCons");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.ProcesoConstruccion", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<int?>("Construccionid")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("procesoConstruccion")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Construccionid");
+
+                    b.ToTable("t_procesoConstruccion");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.ProcesoDA", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<int?>("DiseñoArquitectonicoid")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("procesoDA")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("DiseñoArquitectonicoid");
+
+                    b.ToTable("t_procesoDA");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.ProcesoSa", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<int?>("Saneamientoid")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("procesoSa")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Saneamientoid");
+
+                    b.ToTable("t_procesoSa");
+                });
+
             modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Proyectos", b =>
                 {
                     b.Property<int>("id")
@@ -69,25 +203,22 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                     b.ToTable("t_proyectos");
                 });
 
-            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Servicios", b =>
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Saneamiento", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
 
-                    b.Property<string>("descripcion")
+                    b.Property<string>("descripcionSa")
                         .HasColumnType("text");
 
-                    b.Property<string>("foto")
-                        .HasColumnType("text");
-
-                    b.Property<string>("nombre")
+                    b.Property<string>("imagenSa")
                         .HasColumnType("text");
 
                     b.HasKey("id");
 
-                    b.ToTable("Servicios");
+                    b.ToTable("t_saneamiento");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -284,6 +415,42 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.ProcesoCons", b =>
+                {
+                    b.HasOne("Estudio_de_Arquitectura_J_W.Models.Consultoria", "Consultoria")
+                        .WithMany("procesoConsultoria")
+                        .HasForeignKey("Consultoriaid");
+
+                    b.Navigation("Consultoria");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.ProcesoConstruccion", b =>
+                {
+                    b.HasOne("Estudio_de_Arquitectura_J_W.Models.Construccion", "Construccion")
+                        .WithMany("procesoConstruccion")
+                        .HasForeignKey("Construccionid");
+
+                    b.Navigation("Construccion");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.ProcesoDA", b =>
+                {
+                    b.HasOne("Estudio_de_Arquitectura_J_W.Models.DiseñoArquitectonico", "DiseñoArquitectonico")
+                        .WithMany("procesoDA")
+                        .HasForeignKey("DiseñoArquitectonicoid");
+
+                    b.Navigation("DiseñoArquitectonico");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.ProcesoSa", b =>
+                {
+                    b.HasOne("Estudio_de_Arquitectura_J_W.Models.Saneamiento", "Saneamiento")
+                        .WithMany("procesoSa")
+                        .HasForeignKey("Saneamientoid");
+
+                    b.Navigation("Saneamiento");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -333,6 +500,26 @@ namespace Estudio_de_Arquitectura_J_W.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Construccion", b =>
+                {
+                    b.Navigation("procesoConstruccion");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Consultoria", b =>
+                {
+                    b.Navigation("procesoConsultoria");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.DiseñoArquitectonico", b =>
+                {
+                    b.Navigation("procesoDA");
+                });
+
+            modelBuilder.Entity("Estudio_de_Arquitectura_J_W.Models.Saneamiento", b =>
+                {
+                    b.Navigation("procesoSa");
                 });
 #pragma warning restore 612, 618
         }
