@@ -35,7 +35,7 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
             return View();
         }
         
-        public IActionResult NuestraExperiencia()
+        public IActionResult Encuesta()
         {
             return View();
         }

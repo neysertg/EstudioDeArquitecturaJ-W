@@ -14,7 +14,7 @@
       <div class="col-6" style="text-align: left;">
         @foreach (var item in Model){
         <p>@Html.DisplayFor(modelItem => item.descripcionConsultoria)</p>
-            @if(!User.Identity.IsAuthenticated){
+            @if(User.Identity.IsAuthenticated){
             <a asp-action="ModificarConsultoria" asp-route-id="@item.id">
               <button type="button" class="btn btn-dark" style="background-color: red;">  Modificar Descripcion e imagen 
               </button>
