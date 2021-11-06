@@ -32,6 +32,7 @@
 <a asp-action="CrearProyectoRealizar"><button type="button" class="btn btn-info">Añadir Proyecto</button></a>
 </div>
 }
+<br>
 <div class="row">
       <div class="col">
         <div id="products" class="mb-3">
@@ -46,7 +47,6 @@
                 
                 <div class="card-body">
                   <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
-                  <p class="card-text" >Descripción: @Html.DisplayFor(modelItem => item.descripcion)</p>
                   <p class="card-text" >Lugar: @Html.DisplayFor(modelItem => item.lugar)</p>
                   <p class="card-text" >Estado: @Html.DisplayFor(modelItem => item.estado)</p>
                   <p class="card-text" >Desde: $@Html.DisplayFor(modelItem => item.precio)</p>
@@ -54,7 +54,7 @@
                   <a asp-action="Caracteristicas" asp-route-id="@item.id"><button type="button" class="btn btn-info">Caracteristicas</button></a>
                   }else{
                     <a asp-action="EditarProyectoRealizar" asp-route-id="@item.id"><button type="button" class="btn btn-info">Editar Proyecto</button></a>
-                    
+                    <a asp-action="Caracteristicas" asp-route-id="@item.id"><button type="button" class="btn btn-info">Caracteristicas</button></a>
                   }
                  </div> 
                 </div>              
@@ -67,142 +67,7 @@
 
 
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfzbeNoGw_Bxday9UVelxvND-FhRnN9b1_JQ&usqp=CAU" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">BECERRA 227</h5>
-        <p class="card-text">Terminado</p>
-           <button href="ProyectA1" type="button" class="btn btn-info">Caracteristicas </button> 
-         
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxB0fJIpMEQzlyKkmmAZ6hUAFyK-uoOhXERg&usqp=CAU" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">AREQUIPA 2655</h5>
-        <p class="card-text">Terminado </p>
-             <button type="button" class="btn btn-info">Caracteristicas</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlMjctxgRlReDSPFgueiSK2U2VsNAc2Xqoew&usqp=CAU" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">ARAMBURÚ 836</h5>
-        <p class="card-text">Terminado</p>
-            <button type="button" class="btn btn-info">Caracteristicas</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiQJ_MhCgB2j2HRgzKHxLfM6_IGo3mgBNvNQ&usqp=CAU" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">CARRIQUIRY 894</h5>
-        <p class="card-text">Terminado</p>
-            <button type="button" class="btn btn-info">Caracteristicas</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<br>
-
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="https://mxcity.mx/wp-content/uploads/2015/09/1380653121Rojkind01A.jpg" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">BECERRA 227</h5>
-        <p class="card-text">Terminado </p>
-            <button type="button" class="btn btn-info">Caracteristicas</button>
-         
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://images.adsttc.com/media/images/6132/709f/f91c/8148/7d00/0002/medium_jpg/_fim.jpg?1630695573" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">AREQUIPA 2655</h5>
-        <p class="card-text">Terminado  </p>
-             <button type="button" class="btn btn-info">Caracteristicas</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoPWZ3OT6pICrf2h2Zf1eB5K5NTqIvNVhb7A&usqp=CAU" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">ARAMBURÚ 836</h5>
-        <p class="card-text">Terminado</p>
-            <button type="button" class="btn btn-info">Caracteristicas</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcNfBEm6BqpgaqxDNskFJJCYNKL_gW6saSNA&usqp=CAU" class="card-img-top"  height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">CARRIQUIRY 894</h5>
-        <p class="card-text">Terminado</p>
-            <button type="button" class="btn btn-info">Caracteristicas</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<br>
-
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="https://cdnsecakmi.kaltura.com/p/2605401/thumbnail/entry_id/1_mgj542dc/width/720" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">BECERRA 227</h5>
-        <p class="card-text">Terminado </p>
-            <button type="button" class="btn btn-info">Caracteristicas</button>
-        
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOVlBvOBDYlY_srjzDT2m8pAcV7fe3vaBDYQ&usqp=CAU" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">AREQUIPA 2655</h5>
-        <p class="card-text">Terminado </p>
-             <button type="button" class="btn btn-info">Caracteristicas</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://www.fachadascasas.com/wp-content/uploads/2018/10/Arquitectura-moderna-3-1.jpg" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">ARAMBURÚ 836</h5>
-        <p class="card-text">Terminado </p>
-            <button type="button" class="btn btn-info">Caracteristicas</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtaSQ0rF0ORzHcnBtO3EKCf9kUe31kEcHuDQ&usqp=CAU" class="card-img-top" height="400" width="400" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">CARRIQUIRY 894</h5>
-        <p class="card-text">Terminado </p>
-            <button type="button" class="btn btn-info">Caracteristicas</button>
-      </div>
-    </div>
-  </div>
-</div>
 <br>
 <nav aria-label="...">
   <ul class="pagination">

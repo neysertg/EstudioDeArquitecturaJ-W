@@ -1,6 +1,4 @@
-﻿
-
-<head>
+﻿<head>
     <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
@@ -10,10 +8,15 @@
    
 </head>
 
+
+@if(User.Identity.IsAuthenticated){
+
 <center>
-<img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=305355"></a>
-<br>Contador de visitas<br></center>
-    
+<a><img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=305355"></a>
+<p style="text-align: center">Contador De Visitas</p>
+
+</center>
+}   
 <body>
   <div class="container">
 
@@ -55,10 +58,10 @@
       <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
           <div class="card">
-            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" class="card-img-top" alt="...">
+            <img src="/image/arquitecto.jpg" height="400px" width="300px" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 >José William</h5>
-              <p>Arquitecto y Gerente General.</p>
+              <p>Gerente General.</p>
                  
                <a href="Home/Nosotros"> <button class="w3-btn w3-ripple w3-yellow">Conóceme</button></a>
             </div>
@@ -67,12 +70,12 @@
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" class="card-img-top" alt="...">
+            <img src="/image/arquitecta.jpg" class="card-img-top" alt="..." height="400px" width="300px">
              <div class="card-body">
-              <h5 >José William</h5>
+              <h5 >Jacqueline Gaitán Moscoso</h5>
             
-              <p>Arquitecto y Gerente General.</p>
-                <a href="Home/Nosotros"> <button class="w3-btn w3-ripple w3-yellow">Conóceme</button></a>
+              <p>Arquitecta.</p>
+                <a href="ProyectosArealizar/ProyectosRealizar"> <button class="w3-btn w3-ripple w3-yellow">Conóceme</button></a>
                 
               </div> 
           </div>
@@ -85,16 +88,16 @@
       <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
           <div class="card">
-            <a href="Home/ProyectosArealizar"><img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" class="card-img-top" alt="..."></a>
-             <h5>Proyecto "Campo de marte"</h5>
+            <a href="ProyectosArealizar/ProyectosRealizar"><img class="card-img-top" width="400" height="400" src="https://i.pinimg.com/474x/b4/ee/e2/b4eee26494fae2af4e37dbad9ec2082c--architecture-visualization-marina.jpg" alt=""  /></a>
+             <h5>Proyecto "AREQUIPA 2655"</h5>
             
             
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <a href="Home/ProyectosArealizar"><img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" class="card-img-top" alt="..."></a>
-             <h5 >Proyecto "Campo de marte"</h5>
+            <a href="ProyectosArealizar/ProyectosRealizar"><img class="card-img-top" width="400" height="400" src="https://fachadas-casas.com/wp-content/uploads/2010/06/fachadas-edificios-8.jpg" alt=""  /></a>
+             <h5 >Proyecto "ARAMBURÚ 836"</h5>
             
             
               
@@ -104,8 +107,8 @@
          <div class="col">
           <div class="card">
             
-             <a href="Home/ProyectosArealizar"><img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" class="card-img-top" alt="..."></a>
-             <h5 >Proyecto "Campo de marte"</h5>
+             <a href="ProyectosArealizar/ProyectosRealizar"><img class="card-img-top" width="400" height="400" src="https://scontent.flim18-3.fna.fbcdn.net/v/t1.6435-9/164140868_2993758767524231_4390279281914994261_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=a26aad&_nc_eui2=AeE5r5b7rOPLXU2CD2_6TeS0qaALtFn6DlCpoAu0WfoOUBOWJ4H-21UdOU0k5q4yZq7JLSjsrZSfhwbrCkqwTxVr&_nc_ohc=9u4yXIQPtMQAX8mAixk&_nc_ht=scontent.flim18-3.fna&oh=a8cd7de5cd8855e61baaca7575a7163a&oe=61A9D62D" alt=""  /></a>
+             <h5 >Proyecto "THE LINE"</h5>
             
           </div>
         </div>
