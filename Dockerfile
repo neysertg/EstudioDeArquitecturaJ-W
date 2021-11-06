@@ -15,4 +15,4 @@ COPY --from=build-env /app/out .
 #nombre de tu app busca en bin\Release\netcore5.0\plantitas.exe
 ENV APP_NET_CORE Estudio_de_Arquitectura_J_W.dll 
 
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet $APP_NET_CORE
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet $APP_NET_CORE 
