@@ -32,7 +32,7 @@ namespace Estudio_de_Arquitectura_J_W
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
-                    Configuration.GetConnectionString("Softw2")));
+                    Configuration.GetConnectionString("Software")));
             services.AddIdentity<IdentityUser,IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
