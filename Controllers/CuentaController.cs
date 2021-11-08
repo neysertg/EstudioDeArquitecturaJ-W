@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Estudio_de_Arquitectura_J_W.Controllers
+namespace Estudio.Controllers
 {
 
         public class CuentaController : Controller{
@@ -28,10 +28,10 @@ namespace Estudio_de_Arquitectura_J_W.Controllers
                     
                     if(resultado.Succeeded){
                         return RedirectToAction("Index", "Home");
-                    }else{
+                    }
                         ModelState.AddModelError("","Los datos son incorrectos");
                         return View();
-                    }  
+                     
                                    
             }
 
