@@ -82,7 +82,7 @@
                    event.preventDefault();
 
                    const form = new FormData(this);
-                   $buttonMailto.setAttribute('href', `mailto:victor_gutierrez4@usmp.pe?subject=Nombre: ${form.get('name')} Correo: ${form.get('email')} Apellido: ${form.get('ape')} Area: ${form.get('area')} telefono: ${form.get('tel')}${form.get('area')}&body=${form.get('message')}`);
+                   $buttonMailto.setAttribute('href', `mailto:victor_gutierrez4@usmp.pe?subject=Area: ${form.get('area')}&body=Nombre: ${form.get('name')} Correo: ${form.get('email')} Apellido: ${form.get('ape')} telefono: ${form.get('tel')} Mensaje: ${form.get('message')}`);
                    $buttonMailto.click();
                }
          </script>       
