@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Estudio.Controllers
+namespace  Estudio_de_Arquitectura_J_W.Controllers
 {
 
         public class CuentaController : Controller{
